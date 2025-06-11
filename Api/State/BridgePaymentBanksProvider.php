@@ -1,6 +1,6 @@
 <?php
 
-namespace BridgePayment\Api\Provider;
+namespace BridgePayment\Api\State;
 
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;

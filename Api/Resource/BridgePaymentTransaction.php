@@ -2,6 +2,7 @@
 
 namespace BridgePayment\Api\Resource;
 
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
 use BridgePayment\Model\Map\BridgePaymentTransactionTableMap;
@@ -9,6 +10,7 @@ use Propel\Runtime\Exception\PropelException;
 use Propel\Runtime\Map\TableMap;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\Ignore;
+use Thelia\Api\Bridge\Propel\Filter\SearchFilter;
 use Thelia\Api\Bridge\Propel\State\PropelCollectionProvider;
 use Thelia\Api\Resource\PropelResourceInterface;
 use Thelia\Api\Resource\PropelResourceTrait;
@@ -33,6 +35,13 @@ use Thelia\Api\Resource\PropelResourceTrait;
         ),
     ],
     normalizationContext: ['groups' => [self::GROUP_READ_FRONT]]
+)]
+#[ApiFilter(
+    SearchFilter::class,
+    properties: [
+        'orderId' => 'exact',
+        'paymentLinkId' => 'exact',
+    ]
 )]
 class BridgePaymentTransaction implements PropelResourceInterface
 {

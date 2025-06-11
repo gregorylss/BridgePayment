@@ -4,7 +4,7 @@ namespace BridgePayment\Api\Resource;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
-use BridgePayment\Api\Provider\BridgePaymentBanksProvider;
+use BridgePayment\Api\State\BridgePaymentBanksProvider;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ApiResource(
